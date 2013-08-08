@@ -1,6 +1,6 @@
-## Open Analytics
+## Apptrack
 
-Analytics you own... 
+Tracking your app from the client and the server while creating analytics you own...
 
 
 ### Dependencies 
