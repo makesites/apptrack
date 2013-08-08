@@ -1,25 +1,22 @@
 {
-  "name": "open-analytics",
-  "description": "A node service where you can manage the website analytics you own",
+  "name": "apptrack",
+  "description": "[WIP] A node module that lets you create website analytics you own",
   "version": "0.0.1",
-  "author": "MakeSites <http://makesites.org>",
+  "author": "make sites",
   "contributors": [ 
     { "name": "Makis Tracend", "url": "http://github.com/tracend" },
     { "name": "Lyndel Thomas", "url": "http://github.com/ryndel" }
-  ],
-  "dependencies": {
-    "express": "*",
-    "mongodb": "*",
-    "webservice": "*"
-  },
-  "devDependencies": {
-  },
+  ], 
   "keywords": ["open", "web", "analytics", "free", "service"],
-  "repository": "git://github.com/visionmedia/express",
+  "repository": "git://github.com/makesites/apptrack.git",
   "main": "index",
   "scripts": {
-    "test": "make test",
-    "prepublish" : "npm prune"
+    "test": "make test"
   },
-  "engines": { "node": "*" }
+  "engines": { "node": "*" },
+  "dependencies": {
+    "winston": "*"
+  },
+  "devDependencies": {
+  }
 }
