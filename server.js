@@ -12,7 +12,7 @@
 
 
 var webservice = require('webservice'),
-	serverModule = require('./server_modules.js');
+	serverModule = require('./index.js');
 
 webservice.createServer(serverModule).listen(8080);
 console.log('JSON Webservices Started at http://localhost:8080 ...');
