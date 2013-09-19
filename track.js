@@ -10,8 +10,8 @@ function registerDomain() {
 	req.open("GET", "http://localhost:8080/register?name=" + domain, true);
 	req.send(null);
 	alert(domain + ' Registered');
-	
-}	
+
+}
 
 function track(domain, trackField) {
 	domainValue = domain;
@@ -19,7 +19,7 @@ function track(domain, trackField) {
 	req.open("GET", "http://localhost:8080/trackHits?domain=" + domain + "&trackField=" + trackField);
 	req.send(null);
 	pattern.push(trackField);
-	
+
 }
 
 function savePattern() {
