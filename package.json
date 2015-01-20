@@ -1,7 +1,7 @@
 {
 	"name": "apptrack",
-	"description": "[WIP] A node module that lets you create website analytics you own",
-	"version": "0.0.1",
+	"description": "Application tracking for the client and the server",
+	"version": "0.1.0",
 	"author": "makesites",
 	"contributors": [
 		{ "name": "Makis Tracend", "url": "http://github.com/tracend" },
@@ -15,6 +15,7 @@
 	},
 	"engines": { "node": ">=0.8.x" },
 	"dependencies": {
+		"node-uuid": "",
 		"underscore": "*"
 	},
 	"devDependencies": {
