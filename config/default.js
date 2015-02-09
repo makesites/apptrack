@@ -5,7 +5,8 @@ module.exports = {
 	domains: [], // list of accepted domains, that can submit tracking data (host is automatically added)
 	routes: {
 		client: "/apptrack.js", // the location where the client-side js is output
-		log: "/log" // the path that is recieving the client-side data...
+		log: "/log",  // the path that is receiving the client-side data...
+		output: false // an endpoint to output the latest data (by default disabled)
 	},
 	store: "memory"
 
