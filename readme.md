@@ -54,14 +54,16 @@ var tracker = new Apptrack({ store : store }, options );
 app.use( tracker.connect() );
 ```
 
+
 ## Credits
 
-Initiated by [@tracend](https://github.com/tracend)
+Initiated by Makis Tracend ( [@tracend](https://github.com/tracend) )
 
 Originally based on the [analytics](https://github.com/srivastavarobin/analytics) app by [@srivastavarobin](https://github.com/srivastavarobin)
 
 Distributed through [Makesites.org](http://makesites.org)
 
+
 ## License
 
-Released under the [MIT license](http://makesites.org/licenses/MIT)
+Released under the [Apache license, version 2.0](http://makesites.org/licenses/APACHE-2.0)
