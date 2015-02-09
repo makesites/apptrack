@@ -18,7 +18,7 @@ CRUD.prototype = {
 	create: function( data, callback ){
 		// fallbacks
 		data = data || {};
-		var key = data.access_token || data.code || false;
+		var key = data.id || false;
 		if( !key ) return callback(null, false);
 		var expires = (data.expires_in) ? parseInt(data.expires_in) : 86400000; // default one day...
 		// if refresh_token, add 60 days...
@@ -36,8 +36,8 @@ CRUD.prototype = {
 	},
 
 	read: function( query, callback ){
-		var key = query.access_token || query.code || false;
-		if( !key ) return callback(null, false);
+		var key = query.id || "*";
+		if( !key ) return callback(null, false); // how to return all data?
 		// connect to db
 		this.db.get( key, function(err, data){
 			if(err) return callback(err);
@@ -48,7 +48,7 @@ CRUD.prototype = {
 	},
 
 	destroy: function( item, callback ){
-		var key = item.access_token || item.code || false;
+		var key = item.id || false;
 		if( !key ) return callback(null, false);
 		// connect to db
 		this.db.del( key, function(err, data){
@@ -58,7 +58,7 @@ CRUD.prototype = {
 	},
 	// FIX THIS: query not implemented for redis yet...
 	query: function( query, callback ){
-		var key = query.access_token || query.code || false;
+		var key = query.id || false;
 		if( !key ) return callback(null, false);
 		// connect to db
 		this.db.get( key, function(err, data){

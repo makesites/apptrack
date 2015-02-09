@@ -4,7 +4,6 @@
  * Note: Highly inefficient & unreliable - do NOT use in production
 **/
 
-
 var CRUD = function( options ){
 
 	// use the built-in methods
@@ -30,12 +29,12 @@ CRUD.prototype = {
 }
 
 // Helpers
-var data = [];
+var data = {};
 
 var db = {
 
 	create: function( item, callback ){
-		var key = item.access_token || item.code || false;
+		var key = item.id || false;
 		if( !key ) return callback(null, false);
 		// check if the item exists first?
 		data[key] = item;
@@ -43,15 +42,18 @@ var db = {
 	},
 
 	read: function( query, callback ){
-		var key = query.access_token || query.code || false;
-		if( !key ) return callback(null, false);
+		query = query || {};
+		var key = query.id || "*";
+		// return all
+		if( key == "*" ) return callback(null, data);
 		var value = query[key];
+		// return specific
 		if( data[key] ) return callback(null, data[key]);
 		return callback(null, false);
 	},
 
 	destroy: function( item, callback ){
-		var key = item.access_token || item.code || false;
+		var key = item.id || false;
 		if( !key ) return callback(null, false);
 		delete data[key];
 		// assume only one item for every key
