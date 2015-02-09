@@ -48,7 +48,7 @@ The library can operate independently but optionally can be connected to the ser
 app.use( apptrack.connect() );
 ```
 
-Apptrack automatically serves the client-side javascript from the "client" route (mentioned in the options below) which, when included in a web page, will create an object named _at_ in the global namespace.
+Apptrack automatically serves the client-side javascript from the _client_ route (mentioned in the options below) which, when included in a web page, will create an object named ```at``` in the global namespace.
 
 
 ## Options
@@ -85,7 +85,7 @@ Below are the public methods that are provided for interfacing with the library:
 
 ## Tracking
 
-To track any of the event include the client-side JavaScipt (default: /apptrack.js) in the HTML page and call the function ```at.log``` with a keyword for the action and any meta data attached to it.
+To track any event, load Apptrack on the server and optionally include the client-side JavaScipt (default: /apptrack.js) in the HTML page. You can call the method ```log``` available from both ends of the application stack, with a keyword for the action and any meta data attached to it.
 ```
 .log(action, data);
 ```
