@@ -8,6 +8,8 @@ module.exports = {
 		input: "/input",  // the path that is receiving the client-side data...
 		output: false // an endpoint to output the latest data (by default disabled)
 	},
-	store: "memory"
+	store: "memory", // options: memory, redis, mongodb, simpledb
+	//middleware: true, // flag if lib is used as middleware (or directly)
+	db: false // db where tokens are stored
 
 }
