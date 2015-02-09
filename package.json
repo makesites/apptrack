@@ -4,8 +4,7 @@
 	"version": "0.1.0",
 	"author": "makesites",
 	"contributors": [
-		{ "name": "Makis Tracend", "url": "http://github.com/tracend" },
-		{ "name": "Lyndel Thomas", "url": "http://github.com/ryndel" }
+		{ "name": "Makis Tracend", "url": "http://github.com/tracend" }
 	],
 	"keywords": ["open", "web", "analytics", "free", "service"],
 	"repository": "git://github.com/makesites/apptrack.git",
@@ -15,9 +14,9 @@
 	},
 	"engines": { "node": ">=0.8.x" },
 	"dependencies": {
-		"node-uuid": "",
-		"underscore": "*"
-	},
-	"devDependencies": {
+		"async": "~0.9.0",
+		"connect": "~3.3.4",
+		"node-uuid": "~1.4.2",
+		"underscore": "~1.7.0"
 	}
 }
