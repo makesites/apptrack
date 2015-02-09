@@ -1,58 +1,102 @@
 # Apptrack
 
-Tracking your app from the client and the server while creating analytics you own...
+Application tracking that simplifies the process of gathering analytics and avoids convoluted conventions.
+
+The logic is minimal, lightweight, yet can work both on the server and the client, with asynchronous syncing of the client data.
 
 
 ## Features
 
-* Asynchronous data gathering
 * Client-side integration
+* Asynchronous data gathering
+* Multiple DB stores supported
+* Optional Connect middleware
+
+
+## Examples
+
+* [Backend](./examples/backend/server.js)
+* [Client-side](./examples/client/server.js)
+
 
 ## Dependencies
 
-** Node Modules **
 * Connect
-* Webservice.js
-		"async": "0.9.0",
-		"connect": "~3.0.x",
-		"underscore": "1.6.0"
-
-{
-	id:
-	headers: { referrer: "", host: "" }
-	action: ""
-	data: ""
-}
-## Setup
-
-Steps to use:
-
-Step 1: Initiate your DB
-
-Step 2: node server.js
-
-Step 3: Register a domain by using registration.html
-
-Step 4: To track any of the event include track.js as source of JavaScript in the HTML page and call the function track with input argument as the registered domain and the field name to track.
+* Underscore
 
 
-app.track(action, data);
+## Install
 
-An action can be any arbritary string, but you should treat is as an identifier label. To be able to group events you shoul duse the same action.
-
+Using npm
+```
+node install apptrack
+```
 
 
 ## Usage
 
+When Apptrack is initiated you can pass the selected store, among other options:
+
 ```
 Apptrack = require("apptrack");
 
-var tracker = new Apptrack({ store : store }, options );
-
-// middleware
-
-app.use( tracker.connect() );
+var apptrack = new Apptrack({ store : "redis", db: db });
 ```
+The library can operate independently but optionally can be connected to the server using a middleware
+```
+// middleware
+app.use( apptrack.connect() );
+```
+
+Apptrack automatically serves the client-side javascript from the "client" route (mentioned in the options below) which, when included in a web page, will create an object named _at_ in the global namespace.
+
+
+## Options
+
+* **host** (default: ""), the Apptrack host, if serving the tracking from a separate domain
+* **domains** (default: []), list of accepted domains, that can submit tracking data (host is automatically added)
+* **store** (default: "memory"), options: memory, redis, mongodb, simpledb
+* **db** (default: false), db where tokens are stored
+
+### Routes
+
+A top level option that may contain the following sub-options:
+
+* **client** (default:"/apptrack.js"), the location where the client-side js is output
+* **input** (default: "/input"), the path that is receiving the client-side data...
+* **output** (default: false), an endpoint to output the latest data (by default disabled)
+
+
+## Methods
+
+Below are the public methods that are provided for interfacing with the library:
+
+### Client
+
+* **at( options )** Initiator for the client, this method is required before any other method can be used.
+* **at.log( action, data )** Record an event with an action label and meta data
+* **at.sync()** Sending data to the server; usually triggered in intervals automatically, we may want to force syncing on occassion (ex. when exiting the website)
+
+## Server
+
+* **apptrack.log( action, data )** Record an event with an action label and meta data
+* **apptrack.output()** Return all the (recent) data saved
+
+
+## Tracking
+
+To track any of the event include the client-side JavaScipt (default: /apptrack.js) in the HTML page and call the function ```at.log``` with a keyword for the action and any meta data attached to it.
+```
+.log(action, data);
+```
+### Action
+
+An action can be any arbitrary string, but you should treat is as an identifier label. To be able to group events you should use the same action keyword.
+
+### Meta data
+
+The library does not try to define the structure of the meta data - it is left schema-less for simplicity, allowing the developer to send arbitrary data along with any action.
+
 
 
 ## Credits
