@@ -1,0 +1,49 @@
+<html>
+<head>
+	<h1>Apptrack: Client-side Demo</h1>
+	<script type="text/javascript" src="/apptrack.js"></script>
+
+</head>
+<body>
+	<h2>Click some of these buttons</h2> <br>
+	<input type="button" onclick="one();" value="Trigger 1" /> <br>
+	<input type="button" onclick="two();" value="Trigger 2" /> <br>
+	<input type="button" onclick="three();" value="Trigger 3" /> <br>
+	<input type="button" onclick="four();" value="Trigger 4" /> <br>
+	<a href="/logs">Then view the logs</a>
+
+
+<script>
+// Logic
+
+// init apptrack
+at({
+	interval: 2 // 2 second intervals for sync, no one stays that long in demos ;)
+});
+
+// alias
+var app = {
+	log: at.log.bind(at)
+};
+
+// actions
+function one(){
+	app.log("action_1", { path: "/" });
+}
+
+
+function two(){
+	app.log("action_2", { path: "/" });
+}
+
+function three(){
+	app.log("action_3", { path: "/" });
+}
+
+function four(){
+	app.log("action_4", { path: "/" });
+}
+
+</script>
+</body>
+</html>
