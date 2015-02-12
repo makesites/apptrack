@@ -9,11 +9,8 @@ var CRUD = function( options ){
 
 	// use the provided db (error control?)
 	this.db = options.db;
-	// get db
-	if( site && !this.db ) this.db = site.modules.db || null;
-	this.backend = this.backend || this.options.backend || false;
+	this.backend = this.backend || options.backend || false;
 	// continue with parent (if available)
-	if( Model.prototype.init ) return Model.prototype.init.call(this, site );
 }
 
 CRUD.prototype = {
@@ -192,6 +189,75 @@ CRUD.prototype = {
 		}
 
 		return query;
+	},
+
+	parse: function( data ) {
+
+		// return empty if there are no results
+		if( typeof data["Item"] == "undefined"){
+			return false;
+		}
+
+		if( data["Item"] instanceof Array ){
+
+			// deconstruct the response to an array
+			var collection = [];
+
+			for( i in data["Item"] ){
+
+				var model = {};
+				var attr = data["Item"][i]["Attribute"];
+				//var attr = data["Item"][i];
+
+				// parse as independent attributes
+				var key = "";
+				for( k in attr ){
+
+					try{
+						model[attr[k]["Name"]] = JSON.parse( attr[k]["Value"] );
+					} catch(err) {
+						// output err.message ?
+						model[attr[k]["Name"]] = attr[k]["Value"];
+					}
+
+				}
+				// ovewrite any model id present with the Attribute Name
+				model.id  = data["Item"][i]["Name"];
+				// filter model
+				model = this.filter( model );
+				//
+				collection.push(model);
+
+			}
+
+		} else {
+
+			var model = {};
+			var attr = data["Item"]["Attribute"];
+
+			if( attr instanceof Array ){
+				for (var i in attr) {
+					try{
+						model[attr[i]["Name"]] = JSON.parse( attr[i]["Value"] );
+					} catch(err) {
+						// output err.message ?
+						model[attr[i]["Name"]] = attr[i]["Value"];
+					}
+				}
+			} else {
+				// this is only one item
+				model[attr["Name"]] = attr["Value"];
+			}
+
+			// ovewrite any model id present with the Attribute Name
+			model.id  = data["Item"]["Name"];
+			// filter model
+			model = this.filter( model );
+		}
+
+		// check if we have a model or collection returned
+		return collection || model;
+
 	}
 
 }
