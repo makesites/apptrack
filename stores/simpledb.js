@@ -9,7 +9,7 @@ var CRUD = function( options ){
 
 	// use the provided db (error control?)
 	this.db = options.db;
-	this.backend = this.backend || options.backend || false;
+	this.table = this.table || options.table || false;
 	// continue with parent (if available)
 }
 
@@ -40,7 +40,7 @@ CRUD.prototype = {
 		callback = callback || function(){};
 		// variables
 		var self = this;
-		var query = "select * from "+ this.backend;
+		var query = "select * from "+ this.table;
 		if( data ){
 			query += " where "+ this.query( data, options );
 		}
@@ -173,7 +173,7 @@ CRUD.prototype = {
 		// create id if not defined
 		//if( typeof model.id == "undefined" ) model.id = uuid.v1();
 
-		query.DomainName = this.backend;
+		query.DomainName = this.table;
 		query.ItemName = model.id;
 		// if we don't require any attributes end now
 		if(options.noAttr) return query;
