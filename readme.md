@@ -81,6 +81,7 @@ Below are the public methods that are provided for interfacing with the library:
 
 * **apptrack.log( action, data )** Record an event with an action label and meta data
 * **apptrack.output()** Return all the (recent) data saved
+* **apptrack.valid( url )** Validate a URL (referer) agains the domains list and host
 
 
 ## Tracking
