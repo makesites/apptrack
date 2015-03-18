@@ -63,7 +63,7 @@ Apptrack automatically serves the client-side javascript from the _client_ route
 A top level option that may contain the following sub-options:
 
 * **client** (default:"/apptrack.js"), the location where the client-side js is output
-* **input** (default: "/input"), the path that is receiving the client-side data...
+* **input** (default: "/log"), the path that is receiving the client-side data...
 * **output** (default: false), an endpoint to output the latest data (by default disabled)
 
 
