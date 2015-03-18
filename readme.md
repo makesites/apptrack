@@ -74,29 +74,29 @@ Below are the public methods that are provided for interfacing with the library:
 ### Client
 
 * **at( options )** Initiator for the client, this method is required before any other method can be used.
-* **at.log( action, data )** Record an event with an action label and meta data
+* **at.log( action, params )** Record an event with an action label and parameters
 * **at.sync()** Sending data to the server; usually triggered in intervals automatically, we may want to force syncing on occassion (ex. when exiting the website)
 
 ## Server
 
-* **apptrack.log( action, data )** Record an event with an action label and meta data
+* **apptrack.log( action, params )** Record an event with an action label and data parameters
 * **apptrack.output()** Return all the (recent) data saved
 * **apptrack.valid( url )** Validate a URL (referer) agains the domains list and host
 
 
 ## Tracking
 
-To track any event, load Apptrack on the server and optionally include the client-side JavaScipt (default: /apptrack.js) in the HTML page. You can call the method ```log``` available from both ends of the application stack, with a keyword for the action and any meta data attached to it.
+To track any event, load Apptrack on the server and optionally include the client-side JavaScipt (default: /apptrack.js) in the HTML page. You can call the method ```log``` available from both ends of the application stack, with a keyword for the action and any params attached to it.
 ```
-.log(action, data);
+.log(action, params);
 ```
 ### Action
 
 An action can be any arbitrary string, but you should treat is as an identifier label. To be able to group events you should use the same action keyword.
 
-### Meta data
+### Params
 
-The library does not try to define the structure of the meta data - it is left schema-less for simplicity, allowing the developer to send arbitrary data along with any action.
+The library does not try to define the structure of the parameters - it is left schema-less for simplicity, allowing the developer to send arbitrary data along with any action.
 
 
 
