@@ -4,6 +4,7 @@
 **/
 
 //var uuid = require("node-uuid"),
+var _ = require("underscore");
 
 var CRUD = function( options ){
 
@@ -41,7 +42,7 @@ CRUD.prototype = {
 		// variables
 		var self = this;
 		var query = "select * from "+ this.table;
-		if( data ){
+		if( data && !_.isEmpty(data) ){
 			query += " where "+ this.query( data, options );
 		}
 
@@ -224,7 +225,7 @@ CRUD.prototype = {
 				// ovewrite any model id present with the Attribute Name
 				model.id  = data["Item"][i]["Name"];
 				// filter model
-				model = this.filter( model );
+				//model = this.filter( model );
 				//
 				collection.push(model);
 
@@ -252,7 +253,7 @@ CRUD.prototype = {
 			// ovewrite any model id present with the Attribute Name
 			model.id  = data["Item"]["Name"];
 			// filter model
-			model = this.filter( model );
+			//model = this.filter( model );
 		}
 
 		// check if we have a model or collection returned
