@@ -104,11 +104,13 @@ The library does not try to define the structure of the parameters - it is left 
 
 Initiated by Makis Tracend ( [@tracend](https://github.com/tracend) )
 
-Originally based on the [analytics](https://github.com/srivastavarobin/analytics) app by [@srivastavarobin](https://github.com/srivastavarobin)
-
 Distributed through [Makesites.org](http://makesites.org)
 
+### Thanks
 
-## License
+Inspired by the [analytics](https://github.com/srivastavarobin/analytics) app by [@srivastavarobin](https://github.com/srivastavarobin)
+
+### License
 
 Released under the [Apache license, version 2.0](http://makesites.org/licenses/APACHE-2.0)
+
