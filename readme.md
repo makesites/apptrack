@@ -53,12 +53,18 @@ Apptrack automatically serves the client-side javascript from the _client_ route
 
 ## Options
 
+### Server
+
 * **host** (default: ""), the Apptrack host, if serving the tracking from a separate domain
 * **domains** (default: []), list of accepted domains, that can submit tracking data (host is automatically added)
 * **store** (default: "memory"), options: memory, redis, mongodb, simpledb
 * **db** (default: false), db where tokens are stored
 
-### Routes
+### Client
+
+* **checkin** _boolean_ (default: false), automatically register events for unique visitors and views
+
+#### Routes
 
 A top level option that may contain the following sub-options:
 
@@ -113,4 +119,3 @@ Inspired by the [analytics](https://github.com/srivastavarobin/analytics) app by
 ### License
 
 Released under the [Apache license, version 2.0](http://makesites.org/licenses/APACHE-2.0)
-
