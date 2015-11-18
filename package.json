@@ -8,11 +8,18 @@
 	],
 	"keywords": ["open", "web", "analytics", "free", "service"],
 	"repository": "git://github.com/makesites/apptrack.git",
+	"license": "Apache-2.0",
+	"licenses": [
+		{
+			"type": "Apache license, version 2.0",
+			"url": "http://makesites.org/licenses/APACHE-2.0"
+		}
+	],
+	"engines": { "node": ">=0.8.x" },
 	"main": "index",
 	"scripts": {
 		"test": "make test"
 	},
-	"engines": { "node": ">=0.8.x" },
 	"dependencies": {
 		"async": "~0.9.0",
 		"connect": "~3.3.4",
