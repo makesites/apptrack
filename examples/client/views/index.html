@@ -1,7 +1,6 @@
 <html>
 <head>
 	<h1>Apptrack: Client-side Demo</h1>
-	<script type="text/javascript" src="/apptrack.js"></script>
 
 </head>
 <body>
@@ -17,33 +16,29 @@
 // Logic
 
 // init apptrack
-at({
+var apptrack = {
 	interval: 2 // 2 second intervals for sync, no one stays that long in demos ;)
-});
-
-// alias
-var app = {
-	log: at.log.bind(at)
 };
 
 // actions
 function one(){
-	app.log("action_1", { path: "/" });
+	at.log("action_1", { path: "/" });
 }
 
 
 function two(){
-	app.log("action_2", { path: "/" });
+	at.log("action_2", { path: "/" });
 }
 
 function three(){
-	app.log("action_3", { path: "/" });
+	at.log("action_3", { path: "/" });
 }
 
 function four(){
-	app.log("action_4", { path: "/" });
+	at.log("action_4", { path: "/" });
 }
 
 </script>
+<script type="text/javascript" src="/apptrack.js"></script>
 </body>
 </html>
