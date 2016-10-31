@@ -99,18 +99,27 @@ Below are the public methods that are provided for interfacing with the library:
 
 ## Tracking
 
-To track any event, load Apptrack on the server and optionally include the client-side JavaScipt (default: /apptrack.js) in the HTML page. You can call the method ```log``` available from both ends of the application stack, with a keyword for the action and any params attached to it.
+To track any event, load Apptrack on the server and optionally include the client-side JavaScipt (default: /apptrack.js) in the HTML page. You can call the method ```log``` available from both ends of the application stack, with a keyword for the action and any parameters attached to it.
 ```
 .log(action, params);
 ```
-### Action
+#### Action
 
 An action can be any arbitrary string, but you should treat is as an identifier label. To be able to group events you should use the same action keyword.
 
-### Params
+#### Params
 
 The library does not try to define the structure of the parameters - it is left schema-less for simplicity, allowing the developer to send arbitrary data along with any action.
 
+In addition to the above, Apptrack also stores if provided:
+
+#### Session
+
+An object defining user data (ex. email, id etc.) to identify the source of the log
+
+##### Headers
+
+Request headers passed during the log event. This is mostly to record authenticity data and other metadata (ex. browser, location etc.)
 
 
 ## Credits
