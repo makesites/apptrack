@@ -88,6 +88,7 @@ Below are the public methods that are provided for interfacing with the library:
 * **at( options )** Initiator for the client, this method is required before any other method can be used.
 * **at.log( action, params )** Record an event with an action label and parameters
 * **at.sync()** Sending data to the server; usually triggered in intervals automatically, we may want to force syncing on occassion (ex. when exiting the website)
+* **at.session( data )** Optionally defining a user session of relevant data (ex. email, id etc.)
 
 ## Server
 
