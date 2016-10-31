@@ -117,7 +117,7 @@ In addition to the above, Apptrack also stores if provided:
 
 An object defining user data (ex. email, id etc.) to identify the source of the log
 
-##### Headers
+#### Headers
 
 Request headers passed during the log event. This is mostly to record authenticity data and other metadata (ex. browser, location etc.)
 
