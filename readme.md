@@ -18,6 +18,12 @@ The logic is minimal, lightweight, yet can work both on the server and the clien
 * [Backend](./examples/backend/server.js)
 * [Client-side](./examples/client/server.js)
 
+To run the examples go to the dir and execute the server script
+
+```sh
+$ cd [repo]/examples/[folder]/
+$ node server.js
+```
 
 ## Dependencies
 
