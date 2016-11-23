@@ -1,29 +1,40 @@
 {
-	"name": "apptrack",
-	"description": "Application tracking for the client and the server",
-	"version": "0.6.5",
-	"author": "makesites",
-	"contributors": [
-		{ "name": "Makis Tracend", "url": "http://github.com/tracend" }
-	],
-	"keywords": ["open", "web", "analytics", "free", "service"],
-	"repository": "git://github.com/makesites/apptrack.git",
-	"license": "Apache-2.0",
-	"licenses": [
-		{
-			"type": "Apache license, version 2.0",
-			"url": "http://makesites.org/licenses/APACHE-2.0"
-		}
-	],
-	"engines": { "node": ">=0.8.x" },
-	"main": "index",
-	"scripts": {
-		"test": "make test"
-	},
-	"dependencies": {
-		"async": "~0.9.0",
-		"connect": "~3.3.4",
-		"node-uuid": "~1.4.2",
-		"underscore": "1.8.3"
-	}
+  "name": "apptrack",
+  "description": "Application tracking for the client and the server",
+  "version": "0.6.5",
+  "author": "makesites",
+  "contributors": [
+    {
+      "name": "Makis Tracend",
+      "url": "http://github.com/tracend"
+    }
+  ],
+  "keywords": [
+    "open",
+    "web",
+    "analytics",
+    "free",
+    "service"
+  ],
+  "repository": "git://github.com/makesites/apptrack.git",
+  "license": "Apache-2.0",
+  "licenses": [
+    {
+      "type": "Apache license, version 2.0",
+      "url": "http://makesites.org/licenses/APACHE-2.0"
+    }
+  ],
+  "engines": {
+    "node": ">=0.8.x"
+  },
+  "main": "index",
+  "scripts": {
+    "test": "make test"
+  },
+  "dependencies": {
+    "async": "~0.9.0",
+    "connect": "~3.3.4",
+    "underscore": "1.8.3",
+    "uuid": "^3.0.0"
+  }
 }

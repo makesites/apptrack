@@ -3,7 +3,7 @@
  * - Saving data using SimpleDB
 **/
 
-//var uuid = require("node-uuid"),
+//var uuid = require("uuid"),
 var _ = require("underscore");
 
 var CRUD = function( options ){
