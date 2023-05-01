@@ -32,7 +32,7 @@
 		"test": "make test"
 	},
 	"dependencies": {
-		"async": "3.x.x",
+		"async": ">=3.2.2",
 		"connect": ">=3.7.0",
 		"underscore": ">=1.12.1",
 		"uuid": "9.x.x"
